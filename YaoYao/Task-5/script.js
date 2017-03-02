@@ -60,17 +60,37 @@ var block = function () {
         }
     };
     
-    var changeDirection = function (value) {
-        direction = value;
-        
-        if (direction < 0) {
-            direction += 4;
+    var changeDirection = function (newDirection) {
+        //修复旋转方向
+        var fix = function () {
+            domObject.style.transition = 'left 1s, top 1s';     //去除旋转过渡动画
+            domObject.style.transform = 'rotate(' + direction * 90 + 'deg)';        //修复旋转角度
+            setTimeout(function () {
+                domObject.style.transition = 'left 1s, top 1s, transform 1s';       //重新添加旋转过渡动画
+            }, 1000);
         }
-        if (direction > 3) {
-            direction -= 4;
-        }
-        domObject.style.transform = 'rotate(' + direction * 90 + 'deg)';
+
+        domObject.style.transform = 'rotate(' + newDirection * 90 + 'deg)';
+
+        //修复旋转角度
+        setTimeout(function () {
+            if (newDirection < 0) {
+                direction = newDirection + 4;
+                fix();
+            }
+            else if (newDirection > 3) {
+                direction = newDirection - 4;
+                fix();
+            }
+            else {
+                direction = newDirection;
+            }
+        }, 1000);
+
     };
+
+    //给方块添加过渡动画
+    domObject.style.transition = 'left 1s, top 1s, transform 1s';
 
     //只暴露命令对象，隐藏内部属性和方法
     return {
