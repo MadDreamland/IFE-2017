@@ -43,7 +43,7 @@ var block = function () {
     var domObject = $('#block');        //保存方块对象
     var posX =  1;      //方块的 X 坐标
     var posY =  1;      //方块的 Y 坐标
-    var face =  0;    //面朝方向，0~3 分别代表上下左右
+    var direction =  0;    //面朝方向，0~3 分别代表上下左右
 
     //移动方块的位置，X、Y 为要移动的距离（坐标增量）
     var move = function (X, Y) {
@@ -60,55 +60,43 @@ var block = function () {
         }
     };
 
-    var rotation = function () {
-        domObject.style.transform = 'rotate(' + face * 90 + 'deg)';
-    };
-
-    var getFace = function () {
-        return face;
-    };
-
-    var setFace = function (value) {
-        face = value;
-        if (face < 0) {
-            face += 4;
+    var changeDirection = function (value) {
+        direction = value;
+        if (direction < 0) {
+            direction += 4;
         }
-        if (face > 3) {
-            face -= 4;
+        if (direction > 3) {
+            direction -= 4;
         }
+        domObject.style.transform = 'rotate(' + direction * 90 + 'deg)';
     };
 
     //只暴露命令对象，隐藏内部属性和方法
     return {
-        commands: {
-            'GO': function () {
-                switch (getFace()) {
-                    case 0: move(0, -1); break;
-                    case 1: move(1, 0); break;
-                    case 2: move(0, 1); break;
-                    case 3: move(-1, 0); break;
-                }
-            },
-            'TUN LEF': function () {
-                setFace(getFace() - 1);
-                rotation();
-            },
-            'TUN RIG': function () {
-                setFace(getFace() + 1);
-                rotation();
-            },
-            'TUN BAC': function () {
-                setFace(getFace() + 2);
-                rotation();
+        'GO': function () {
+            switch (direction) {
+                case 0: move(0, -1); break;
+                case 1: move(1, 0); break;
+                case 2: move(0, 1); break;
+                case 3: move(-1, 0); break;
             }
+        },
+        'TUN LEF': function () {
+            changeDirection(direction - 1);
+        },
+        'TUN RIG': function () {
+            changeDirection(direction + 1);
+        },
+        'TUN BAC': function () {
+            changeDirection(direction + 2);
         }
     };
 }();
 
 //“执行”命令
 var execute = function (command) {
-    if (block.commands[command]) {
-        block.commands[command]();
+    if (block[command]) {
+        block[command]();
     }
     else {
         alert('请输入正确的指令');
