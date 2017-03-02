@@ -67,8 +67,8 @@ var block = function () {
             domObject.style.transform = 'rotate(' + direction * 90 + 'deg)';        //修复旋转角度
             setTimeout(function () {
                 domObject.style.transition = 'left 1s, top 1s, transform 1s';       //重新添加旋转过渡动画
-            }, 1000);
-        };
+            }, 100);
+        }
 
         domObject.style.transform = 'rotate(' + newDirection * 90 + 'deg)';
 
