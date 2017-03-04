@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    cursor: ;
 }
 #chessboard{
     margin: 10px;
@@ -17,6 +18,7 @@ body{
     width: 50px;
     height: 15px;
     background: #825ce9;
+    text-indent: 10px;
 }
 form{
     margin-left: 30px;
