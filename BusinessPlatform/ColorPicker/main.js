@@ -203,13 +203,14 @@ var colorPicker = function () {
 
         //给16进制颜色输入框绑定内容改变事件
         inpHex.onchange = function () {
-            var rgb = inpHex.value.colorRgb();
+            var rgb = this.value.colorRgb();
             if (rgb) {
                 var hsl = color.RGBtoHSL(rgb[0], rgb[1], rgb[2]);
                 setColor(hsl[0] * 360, hsl[1] * 100, hsl[2] * 100);
             }
             else {
                 alert('格式不正确！');
+                this.value = '';
             }
         };
     };
