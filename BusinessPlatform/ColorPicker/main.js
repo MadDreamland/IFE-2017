@@ -170,7 +170,7 @@ var colorPicker = function () {
                 else if ((item === 'h') && (value > 360)) {
                     obj[item].value = 360;
                 }
-                else if (value > 100) {
+                else if ((item === 's' || item === 'l') && (value > 100)) {
                     obj[item].value = 100;
                 }
             }
@@ -225,29 +225,8 @@ var colorPicker = function () {
         var picker = $('.picker');
         picker.style.left = (s / 100 * 300 - 5) + 'px';
         picker.style.top = ((100 - l) / 100 * 300 - 5) + 'px';
+        renderDetail(h);
         refreshInp(h, s, l);
-    };
-
-    //初始化
-    var init = function () {
-        details = $('.details');
-
-        if (details) {
-            contextMain = details.getContext('2d');
-        }
-        createHueBar(0, 0, 30, 300);
-        bindClickAndDragEvent(hue, $('.pointer'), function (x, y) {
-            var h = Math.round(360 * y / 300);
-            setColor(h, inpHSL.s.value, inpHSL.l.value);
-        });
-        renderDetail(0);
-
-        bindClickAndDragEvent(details, $('.picker'), function (x, y) {
-            var s = Math.round(x / 300 * 100);
-            var l = Math.round(100 - y / 300 * 100);
-            setColor(inpHSL.h.value, s, l);
-        });
-        bindInpSetColor();
     };
 
     /**\
@@ -306,6 +285,28 @@ var colorPicker = function () {
         contextHue.strokeStyle = '#000000';
         contextHue.fillRect(startX, startY, width, height);
         contextHue.strokeRect(startX, startY, width, height);
+    };
+
+    //初始化
+    var init = function () {
+        details = $('.details');
+
+        if (details) {
+            contextMain = details.getContext('2d');
+        }
+        createHueBar(0, 0, 30, 300);
+        bindClickAndDragEvent(hue, $('.pointer'), function (x, y) {
+            var h = Math.round(360 * y / 300);
+            setColor(h, inpHSL.s.value, inpHSL.l.value);
+        });
+        renderDetail(0);
+
+        bindClickAndDragEvent(details, $('.picker'), function (x, y) {
+            var s = Math.round(x / 300 * 100);
+            var l = Math.round(100 - y / 300 * 100);
+            setColor(inpHSL.h.value, s, l);
+        });
+        bindInpSetColor();
     };
     
     return {
