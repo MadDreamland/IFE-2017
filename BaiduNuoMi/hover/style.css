@@ -1,0 +1,86 @@
+@keyframes fluxion {
+    0%  {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+.dynamic-button{
+    position: relative;
+    width: 300px;
+    height: 150px;
+}
+.dynamic-button .background{
+    width: 100%;
+    height: 100%;
+    background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1489381443581&di=413ecf69436cf4746c61ba54c9a01729&imgtype=0&src=http%3A%2F%2Fimg1.cache.netease.com%2Fcatchpic%2F0%2F0C%2F0CED05FA7F97D49F5BD8735D61F8D959.jpg");
+    -webkit-background-size: contain;
+    background-size: contain;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+.dynamic-button:hover .background{
+    filter: blur(5px);
+}
+.dynamic-button a, .dynamic-button a:visited{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -65px 0 0 -140px;
+    width: 280px;
+    height: 130px;
+    opacity: 0;
+    font-size: 20px;
+    font-weight: bolder;
+    line-height: 65px;
+    text-align: center;
+    text-decoration: none;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: -webkit-linear-gradient(left, #ff2b2b, #fff947 25%, #54ff58 50%, #5965ff 75%, #ff2b2b 100%);
+    -webkit-background-clip: text;
+    -webkit-background-size: 400% 100%;
+    background-size: 500% 100%;
+    transition: all 1s;
+}
+.dynamic-button:hover a{
+    opacity: 1;
+    animation: fluxion 3s infinite linear;
+}
+.dynamic-button a::before, .dynamic-button a::after{
+    content: '';
+    position: absolute;
+    border: 3px solid white;
+    box-sizing: border-box;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+.dynamic-button a::before{
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    border-width: 3px 0;
+}
+.dynamic-button:hover a::before{
+    left: 0;
+    width: 100%;
+}
+.dynamic-button a::after{
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-width: 0 3px;
+}
+.dynamic-button:hover a::after{
+    top: 0;
+    height: 100%;
+}
