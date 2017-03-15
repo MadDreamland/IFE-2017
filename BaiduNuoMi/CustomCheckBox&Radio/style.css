@@ -1,0 +1,42 @@
+body{
+    width: 600px;
+    margin: 10px auto;
+}
+fieldset{
+    vertical-align: middle;
+}
+input[type="radio"], input[type="checkbox"]{
+    display: none;
+}
+input[type="radio"]+label, input[type="checkbox"]+label{
+    display: inline-block;
+    height: 16px;
+    margin-right: 15px;
+    font-size: 16px;
+    line-height: 16px;
+}
+input[type="radio"]+label::before, input[type="checkbox"]+label::before{
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-right: 3px;
+    vertical-align: middle;
+    background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png") no-repeat;
+}
+input[type="radio"]:checked+label, input[type="checkbox"]:checked+label{
+    color: #ff312e;
+}
+input[type="radio"]+label::before{
+    background-position: -24px -10px;
+}
+input[type="radio"]:checked+label::before{
+    background-position: -59px -10px;
+}
+input[type="checkbox"]+label::before{
+    background-position: -25px -32px;
+}
+input[type="checkbox"]:checked+label::before{
+    background-position: -60px -32px;
+}
