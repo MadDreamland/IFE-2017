@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义网页右键菜单</title>
+    <style>
+        ul.context-menu{
+            display: none;
+            width: 200px;
+            padding: 5px 10px;
+            margin: 0;
+            border: 1px solid #4d4d4d;
+            list-style-type: none;
+            -webkit-box-shadow: 3px 3px 10px #4d4d4d;
+            -moz-box-shadow: 3px 3px 10px #4d4d4d;
+            box-shadow: 3px 3px 10px #4d4d4d;
+        }
+        ul.context-menu li{
+            padding: 3px 20px;
+            cursor: pointer;
+        }
+        ul.context-menu li:hover{
+            background: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+<ul class="context-menu">
+    <li>菜单项1</li>
+    <li>菜单项2</li>
+    <li>菜单项3</li>
+    <li>菜单项4</li>
+    <li>菜单项5</li>
+</ul>
+<script>
+    function setContextMenu(selector) {
+        var contextMenu = document.querySelector(selector);
+        contextMenu.style.display = 'none';
+        contextMenu.style.position = 'absolute';
+        window.oncontextmenu = function (event) {
+            contextMenu.style.left = event.clientX + 'px';
+            contextMenu.style.top = event.clientY + 'px';
+            contextMenu.style.display = 'block';
+            return false;
+        };
+        window.onclick = function () {
+            contextMenu.style.display = 'none';
+        };
+    }
+
+    setContextMenu('.context-menu');
+</script>
+</body>
+</html>
