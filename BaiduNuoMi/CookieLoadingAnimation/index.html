@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 饼状 loading 效果</title>
+    <style>
+        @keyframes rotation {
+            0% {transform: rotate(0);}
+            100%{transform: rotate(360deg);}
+        }
+        @keyframes cookie-rotation {
+            0% {transform: rotate(0); opacity: 1;}
+            25% {transform: rotate(180deg);}
+            50% {transform: rotate(180deg);}
+            74% {transform: rotate(360deg); opacity: 1;}
+            75% {transform: rotate(360deg); opacity: 0;}
+            100% {transform: rotate(360deg); opacity: 0;}
+        }
+        @keyframes cookie-rotation-2 {
+            0% {transform: rotate(180deg); opacity: 0;}
+            24% {transform: rotate(180deg); opacity: 0;}
+            25%{transform: rotate(180deg); opacity: 1;}
+            50%{transform: rotate(360deg); opacity: 1;}
+            75%{transform: rotate(360deg); opacity: 1;}
+            100%{transform: rotate(540deg); opacity: 1;}
+        }
+        @keyframes cover {
+            0% {opacity: 1; transform: rotate(0);}
+            24% {opacity: 1;}
+            25% {opacity: 0;}
+            74% {opacity: 0; transform: rotate(0);}
+            75% {opacity: 1; transform: rotate(180deg);}
+            100% {opacity: 1; transform: rotate(180deg);}
+        }
+        .center{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+        .loading{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            margin: -100px auto auto -100px;
+            border: 5px solid;
+            border-color: transparent #ff5b5b #ff5b5b #ff5b5b;
+            animation: rotation .8s linear infinite;
+        }
+        .cookie{
+            width: 100px;
+            height: 100px;
+            margin: -50px auto auto -50px;
+            border-radius: 50px;
+            background: #ffb0b2;
+        }
+        .cookie .cover, .cookie .fill-1, .cookie .fill-2{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            clip: rect(0,50px,100px,0);
+        }
+        .cookie .cover{
+            background: #ffb0b2;
+            z-index: 1;
+            animation: cover 1.5s linear infinite;
+        }
+        .cookie .fill-1{
+            background: #ff5b5b;
+            animation: cookie-rotation 1.5s linear infinite;
+        }
+        .cookie .fill-2{
+            background: #ff5b5b;
+            animation: cookie-rotation-2 1.5s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="center loading"></div>
+    <div class="center cookie">
+        <div class="cover"></div>
+        <div class="fill-1"></div>
+        <div class="fill-2"></div>
+    </div>
+</body>
+</html>
