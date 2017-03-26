@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 实现 3D 轮播图</title>
+    <style>
+        .carousel{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 900px;
+            height: 300px;
+            margin: -300px auto auto -450px;
+            perspective: 1000px;
+        }
+        .carousel .container{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 300px;
+            height: 200px;
+            margin: -100px auto auto -150px;
+            transform-style: preserve-3d;
+            transition: all .8s;
+        }
+        .carousel button{
+            position: absolute;
+            top: 50%;
+            background: #000;
+            color: #ffffff;
+            opacity: 0.5;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            margin-top: -15px;
+            cursor: pointer;
+        }
+        .carousel #last{
+            left: 0;
+        }
+        .carousel #next{
+            right: 0;
+        }
+        .carousel img{
+            position: absolute;
+            width: 300px;
+            height: 200px;
+        }
+        .carousel img:nth-child(1){
+            transform: rotateY(0) translateZ(359.8px);
+        }
+        .carousel img:nth-child(2){
+            transform: rotateY(60deg) translateZ(359.8px);
+        }
+        .carousel img:nth-child(3){
+            transform: rotateY(120deg) translateZ(359.8px);
+        }
+        .carousel img:nth-child(4){
+            transform: rotateY(180deg) translateZ(359.8px);
+        }
+        .carousel img:nth-child(5){
+            transform: rotateY(240deg) translateZ(359.8px);
+        }
+        .carousel img:nth-child(6){
+            transform: rotateY(300deg) translateZ(359.8px);
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="container">
+            <img src="http://img.xiazaizhijia.com/uploads/2016/1102/20161102033232903.jpg" alt="战地 1">
+            <img src="http://img.newyx.net//newspic//image//201609//22//3b68d88862.jpg" alt="FIFA 17">
+            <img src="http://img2.ali213.net/picfile/News/2016/12/22/584_2016122243102931.jpg" alt="实况足球 2017">
+            <img src="http://pic.3h3.com/up/2016-9/20169923231559564828.jpg" alt="NBA 2K17">
+            <img src="http://cdn.steamstatic.com.8686c.com/steam/apps/282070/header.jpg?t=1481207974" alt="这是我的战争">
+            <img src="http://img2.ali213.net/picfile/News/2015/08/05/584_2015080564108385.jpg" alt="极品飞车 19">
+        </div>
+        <button id="last">←</button>
+        <button id="next">→</button>
+    </div>
+    <script>
+        var divContainer = document.querySelector('.container');
+        var angle = 0;
+        document.querySelector('#last').onclick = function () {
+            angle -= 60;
+            divContainer.style.transform = 'rotateY(' + angle + 'deg)';
+        }
+        document.querySelector('#next').onclick = function () {
+            angle += 60;
+            divContainer.style.transform = 'rotateY(' + angle + 'deg)';
+        }
+    </script>
+</body>
+</html>
