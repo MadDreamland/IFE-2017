@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿豆瓣音乐播放器</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="music-player">
+        <audio src="" autoplay></audio>
+        <div class="info">
+            <p class="title">未知歌曲</p>
+            <p class="artist">未知歌手</p>
+        </div>
+
+        <div class="control-bar">
+            <div class="control">
+                <div class="left">
+                    <div class="remain-time">---:--</div>
+                    <button class="muted glyphicon glyphicon-volume-up" title="静音"></button>
+                    <input type="range" step="1" value="60" class="volume" min="0" max="100">
+                </div>
+                <div class="right">
+                    <button data-toggle="popover" class="list glyphicon glyphicon-list" title="显示/隐藏播放列表"></button>
+                    <button class="download glyphicon glyphicon-download-alt" title="下载此歌曲"></button>
+                    <a class="download-true" href="" download=""></a>
+                    <button class="play-strategy glyphicon glyphicon-sort-by-attributes" title="顺序播放"></button>
+                    <button class="add glyphicon glyphicon-plus" title="添加歌曲至播放列表"></button>
+                </div>
+            </div>
+            <input type="range" class="progress" step="1" value="0" min="0" max="100">
+        </div>
+
+        <div class="operate">
+            <div class="left">
+                <button class="favor glyphicon glyphicon-heart-empty" title="设为喜欢"></button>
+                <button class="delete glyphicon glyphicon-trash" title="从播放列表中移除此歌曲"></button>
+            </div>
+            <div class="right">
+                <button class="pause glyphicon glyphicon-pause" title="暂停"></button>
+                <button class="next glyphicon glyphicon-step-forward" title="下一首"></button>
+            </div>
+        </div>
+
+        <img class="cover" src="image/cover.png">
+
+        <div class="player-list">
+            <table></table>
+        </div>
+        <input type="file" class="file">
+    </div>
+    <script src="library/id3-minimized.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
