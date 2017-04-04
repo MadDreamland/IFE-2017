@@ -399,6 +399,10 @@ function createPlayer(musicList) {
             }
         };
 
+        audio.oncanplay = function () {
+            $('.progress').max = this.duration;
+        }
+
         audio.ontimeupdate = function () {
             var remainMin = Math.floor((this.duration - this.currentTime) / 60);
             var remainSec = Math.floor((this.duration - this.currentTime) % 60);
@@ -414,6 +418,7 @@ function createPlayer(musicList) {
 
         $('.progress').onchange = function () {
             audio.currentTime = this.value;
+            refeshProgress();
         };
     }
 
