@@ -401,6 +401,10 @@ function createPlayer(musicList) {
 
         audio.oncanplay = function () {
             $('.progress').max = this.duration;
+            setInterval(function () {
+                console.log(audio.seekable.end(0));
+            }, 1000);
+
         }
 
         audio.ontimeupdate = function () {
