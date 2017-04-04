@@ -1,10 +1,13 @@
 /**
  * Created by 10399 on 2017/3/27.
  */
+
+
 var $ = function (selector) {
     return document.querySelector(selector);
 };
 
+//音乐资源列表，做成对象以增强其扩展性
 var musicList = [
     {
         src: 'music/Ina - I wanted you.mp3'
@@ -22,12 +25,12 @@ var musicList = [
         src: 'music/Ronald Jenkees - Guitar Sound.mp3'
     }
 ];
-var volume = 60;
 
 function createPlayer(musicList) {
     var musics = [];
     var audio = $('audio');
     var rangeVolume = $('.volume');
+    var volume = 60;
     var currentMusicId = 0;
     var currentStrategyOfPlay = 'sequence';
     var musics = [];
@@ -41,6 +44,7 @@ function createPlayer(musicList) {
         loop: 'glyphicon glyphicon-retweet',
         random: 'glyphicon glyphicon-random'
     };
+    //播放策略（顺序播放、循环播放、随机播放
     var strategyOfPlay = {
         sequence: function () {
             if (currentMusicId >= (musics.length - 1)) {
@@ -100,6 +104,7 @@ function createPlayer(musicList) {
         var tr = musics[id].playListRow.tr;
         tr.parentNode.removeChild(tr);
         musics.splice(id, 1);
+        //如果要删除的音乐正在播放，则播放删除后同位置的歌曲
         if (currentMusicId === id) {
             if (currentMusicId > musics.length - 1) {
                 currentMusicId = musics.length - 1;
