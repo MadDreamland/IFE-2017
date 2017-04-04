@@ -310,7 +310,7 @@ function createPlayer(musicList) {
             next();
         }
 
-        rangeVolume.onmousemove = rangeVolume.onmousedown = function () {
+        rangeVolume.oninput = function () {
             setVolume(this.value);
         };
 
@@ -325,12 +325,6 @@ function createPlayer(musicList) {
         };
 
         $('.list').onclick = function () {
-            if (musics.length === 0) {console.log('qqqqqqqq')
-                return this.popover({
-                    placement: 'top',
-                    content: '播放列表为空'
-                });
-            }
             var playerList = $('.player-list');
             if (playerList.style.maxHeight === '0px') {
                 playerList.style.maxHeight = '500px';
@@ -368,7 +362,7 @@ function createPlayer(musicList) {
             $('.file').click();
         };
 
-        $('.file').onchange = function () {console.log(this.value)
+        $('.file').onchange = function () {
             if (this.value) {
                 musics.push(new Music(this.src));
             }
@@ -420,7 +414,7 @@ function createPlayer(musicList) {
             $('.remain-time').innerText = '-' + remainMin + ':' + remainSec;
         };
 
-        $('.progress').onchange = function () {
+        $('.progress').oninput = function () {
             audio.currentTime = this.value;
             refeshProgress();
         };
