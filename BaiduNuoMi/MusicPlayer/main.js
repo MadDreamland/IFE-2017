@@ -522,7 +522,7 @@ function createPlayer(musicList) {
 
         element.progress.oninput = function () {
             element.audio.currentTime = this.value;
-            updateProgress();
+            player.updateProgress();
         };
     }
 
