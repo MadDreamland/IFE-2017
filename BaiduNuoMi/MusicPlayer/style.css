@@ -129,7 +129,7 @@
     position: absolute;
     bottom: 248px;
     right: 0;
-    max-height: 0;
+    max-height: 0px;
     background: #fafafa;
     color: #6e6e6e;
     border: 1px solid #eaeaea;

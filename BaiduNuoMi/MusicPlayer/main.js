@@ -44,7 +44,7 @@ function createPlayer(musicList) {
         loop: 'glyphicon glyphicon-retweet',
         random: 'glyphicon glyphicon-random'
     };
-    //播放策略（顺序播放、循环播放、随机播放
+    //播放策略（顺序播放、循环播放、随机播放）
     var strategyOfPlay = {
         sequence: function () {
             if (currentMusicId >= (musics.length - 1)) {
@@ -326,15 +326,11 @@ function createPlayer(musicList) {
 
         $('.list').onclick = function () {
             var playerList = $('.player-list');
-            if (playerList.style.maxHeight === '0px') {
-                playerList.style.maxHeight = '500px';
-            } else {
+            if (playerList.style.maxHeight === '500px') {
                 playerList.style.maxHeight = '0px';
+            } else {
+                playerList.style.maxHeight = '500px';
             }
-        };
-
-        $('.play-strategy').onclick = function () {
-
         };
 
         $('.download').onclick = function () {
@@ -346,14 +342,17 @@ function createPlayer(musicList) {
                 case 'sequence':
                     currentStrategyOfPlay= 'loop';
                     this.className = 'play-strategy ' + icon.loop;
+                    this.title = '列表循环';
                     break;
                 case 'loop':
                     currentStrategyOfPlay = 'random';
                     this.className = 'play-strategy ' + icon.random;
+                    this.title = '随机播放';
                     break;
                 case 'random':
                     currentStrategyOfPlay = 'sequence';
                     this.className = 'play-strategy ' + icon.sequence;
+                    this.title = '顺序播放';
                     break;
             }
         };
@@ -395,7 +394,7 @@ function createPlayer(musicList) {
 
         audio.oncanplay = function () {
             $('.progress').max = this.duration;
-        }
+        };
 
         audio.ontimeupdate = function () {
             var remainMin = Math.floor((this.duration - this.currentTime) / 60);
