@@ -193,6 +193,11 @@ function createPlayer(musicList) {
             },
             next: function () {
                 currentPlayStrategy.next(this, this.play);
+                element.progress.value = 0;
+                element.progress.style.background = 'linear-gradient(to right,' +
+                    ' #62bb7b, #62bb7b ' + 0 +
+                    '%, #dadada ' + 0 +
+                    '%, #dadada 100%)';
             },
             /**
              * 设置播放器音量
