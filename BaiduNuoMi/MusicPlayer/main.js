@@ -523,10 +523,12 @@ function createPlayer(musicList) {
                 remainSec = remainMin = '--';
             }
             element.remainTime.innerText = '-' + remainMin + ':' + remainSec;
+            element.progress.value = element.audio.currentTime;
         };
 
         element.progress.oninput = function () {
             element.audio.currentTime = this.value;
+            this.value = element.audio.currentTime;
             player.updateProgress();
         };
     }
