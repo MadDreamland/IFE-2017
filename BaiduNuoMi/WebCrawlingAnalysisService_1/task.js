@@ -14,12 +14,12 @@ var result = {
     word: system.args[1], //抓取的关键字
     time: '2000ms', //任务的时间
     dataList:[   //抓取结果列表
-        {
-            title: 'xx',  //结果条目的标题
-            info: '', //摘要
-            link: '', //链接
-            pic: '' //缩略图地址
-        }
+        // {
+        //     title: 'xx',  //结果条目的标题
+        //     info: '', //摘要
+        //     link: '', //链接
+        //     pic: '' //缩略图地址
+        // }
     ]
 };
 
