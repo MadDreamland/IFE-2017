@@ -56,7 +56,7 @@ if (device[deviceName]) {
 }
 
 page.open('https://www.baidu.com/s?wd=' + word, function (status) {
-    if (status === 'success') {console.log(page.url)
+    if (status === 'success') {
         result.code = 1;
         result.msg = '抓取成功';
         result.dataList = page.evaluate(function () {
