@@ -2,7 +2,7 @@
  * Created by 10399 on 2017/4/6.
  */
 
-phantom.outputEncoding = 'gb2312';
+phantom.outputEncoding = 'gb2312';      //为了能正确地显示汉字，采用 GB2312 编码
 
 var page = require('webpage').create();
 var system = require('system');
@@ -30,7 +30,7 @@ page.open('https://www.baidu.com/s?wd=' + word, function (status) {
         result.dataList = page.evaluate(function () {
             var dataList = [];
             var $search = document.querySelector('#content_left');
-            var $list = $search.querySelectorAll('.result, .result-op');
+            var $list = $search.querySelectorAll('.result, .result-op');    //搜索结果列表
             for (var i = 0, item; item = $list[i++];) {
                 var $a = item.querySelector('a');
                 var $pic = item.querySelector('.c-img');
