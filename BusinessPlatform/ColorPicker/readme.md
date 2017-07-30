@@ -1,7 +1,7 @@
 # UI组件之色彩选择器
 题目地址：http://ife.baidu.com/course/detail/id/16
 
-预览：https://vimdaw.github.io/IFE-2017/BusinessPlatform/ColorPicker
+预览：https://vimcaw.github.io/IFE-2017/BusinessPlatform/ColorPicker
 
 # 任务描述
 欢迎加入商业平台学院QQ群38234781，获得与导师一对一的沟通机会
