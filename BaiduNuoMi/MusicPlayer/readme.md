@@ -1,7 +1,7 @@
 # 仿豆瓣音乐播放器
 题目地址：http://ife.baidu.com/course/detail/id/83
 
-预览：https://neoherus.github.io/IFE-2017/BaiduNuoMi/MusicPlayer
+预览：https://vimdaw.github.io/IFE-2017/BaiduNuoMi/MusicPlayer
 
 # 任务目的
 * 练习综合运用HTML、CSS、JavaScript实现功能
