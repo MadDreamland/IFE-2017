@@ -1,7 +1,7 @@
 # 标签云
 题目地址：http://ife.baidu.com/course/detail/id/17
 
-预览：https://vimdaw.github.io/IFE-2017/BusinessPlatform/TagCloud
+预览：https://vimcaw.github.io/IFE-2017/BusinessPlatform/TagCloud
 
 # 任务描述
 欢迎加入商业平台学院QQ群38234781，获得与导师一对一的沟通机会
